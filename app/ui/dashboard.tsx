@@ -128,7 +128,7 @@ function ClientModal({ onClose, onSave }: { onClose: () => void; onSave: (client
       if (!response.ok) throw new Error('Recherche indisponible');
       const result = await response.json(); const company = result.results?.[0];
       if (!company) throw new Error('Aucune entreprise trouvée pour ce numéro.');
-      setName(company.nom_complet || company nom_complet || company.denomination || name);
+      setName(company.nom_complet || company.denomination || name);
       const siege = company.siege || {};
       setAddress([siege.numero_voie, siege.type_voie, siege.libelle_voie, siege.code_postal, siege.libelle_commune].filter(Boolean).join(' '));
       setSiren(company.siren || clean.slice(0, 9));
